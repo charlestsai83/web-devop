@@ -1,6 +1,17 @@
-FROM node
+FROM ubuntu:16.04
 
-COPY vscode.deb .
-RUN dpkg -i vscode.deb
+ARG NODE_VER
 
-WORKDIR /home/develop
+RUN apt update
+
+RUN apt install -y python3-dev python3-pip
+
+WORKDIR /workspace
+
+COPY tmp/node.tar.xz /home/.
+
+RUN tar -xf /home/node.tar.xz -C /home/
+RUN mkdir -p /home/develop
+RUN mv /home/${NODE_VER} /home/develop/node
+RUN rm -f /home/node.tar.xz
+RUN echo "PATH=/home/develop/node/bin:$PATH" >> /root/.bashrc
