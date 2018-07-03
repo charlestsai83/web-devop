@@ -17,5 +17,5 @@ RUN mv /home/${NODE_VER} /home/develop/node
 RUN rm -f /home/node.tar.xz
 RUN echo "PATH=/home/develop/node/bin:$PATH" >> /root/.bashrc
 
-ENTRYPOINT ["/home/develop/node/bin/node", "/workspace/app.js"]
+# ENTRYPOINT ["/home/develop/node/bin/node", "/workspace/app.js"]
  
