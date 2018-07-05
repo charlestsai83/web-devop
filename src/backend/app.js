@@ -3,7 +3,7 @@ var url = require('url');
 var fs = require("fs");
 http.createServer(function (request, response) {
     path = url.parse(request.url);
-    fs.readFile("static/index.html", "utf8", function(err, file) {
+    fs.readFile("/workspace/frontend/static/index.html", "utf8", function(err, file) {
         if (err) {
             response.writeHead(404, {
                 'Content-Type': 'text/plain'
